@@ -11,7 +11,6 @@ public class TicTacToeApplication extends Application
 	public static void main(String[] args)
 	{
 		launch(args);
-
 	}
 	
 	@Override

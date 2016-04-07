@@ -11,6 +11,8 @@ public class MainController
 	boolean player = true;
 	boolean grid00 = false, grid01 = false, grid02 = false, grid10 = false, grid11 = false, grid12 = false,
 			grid20 = false, grid21 = false, grid22 = false;
+	Board board = new Board();
+	Game game = new Game();
     @FXML
     private ImageView imgGrid01;
 
@@ -59,54 +61,64 @@ public class MainController
 	    		if (row == 0 && col == 0 && !grid00)
 	    		{
 	    			imgGrid00.setImage(imgO);	
+	    			board.updateBoard(row, col, player);
 	    			grid00 = true;
 	    			player = false;
+	    			
 	    		}
 	    		else if (row == 0 && col == 1 && !grid01)
 	    		{
 	    			imgGrid01.setImage(imgO);
+	    			board.updateBoard(row, col, player);
 	    			grid01 = true;
-	    			player = false;
+	    			player = false;    			
 	    		}
 	    		else if (row == 0 && col == 2 && !grid02)
 	    		{
 	    			imgGrid02.setImage(imgO);
+	    			board.updateBoard(row, col, player);
 	    			grid02 = true;
 	    			player = false;
 	    		}
 	    		else if (row == 1 && col == 0 && !grid10)
 	    		{
 	    			imgGrid10.setImage(imgO);
+	    			board.updateBoard(row, col, player);
 	    			grid10 = true;
 	    			player = false;
 	    		}
 	    		else if (row == 1 && col == 1 && !grid11)
 	    		{
 	    			imgGrid11.setImage(imgO);
+	    			board.updateBoard(row, col, player);
 	    			grid11 = true;
 	    			player = false;
 	    		}
 	    		else if (row == 1 && col == 2 && !grid12)
 	    		{
 	    			imgGrid12.setImage(imgO);
+	    			board.updateBoard(row, col, player);
 	    			grid12 = true;
 	    			player = false;
 	    		}
 	    		else if (row == 2 && col == 0 && !grid20)
 	    		{
 	    			imgGrid20.setImage(imgO);
+	    			board.updateBoard(row, col, player);
 	    			grid20 = true;
 	    			player = false;
 	    		}
 	    		else if (row == 2 && col == 1 && !grid21)
 	    		{
 	    			imgGrid21.setImage(imgO);
+	    			board.updateBoard(row, col, player);
 	    			grid21 = true;
 	    			player = false;
 	    		}
 	    		else if (row == 2 && col == 2 && !grid22)
 	    		{
 	    			imgGrid22.setImage(imgO);
+	    			board.updateBoard(row, col, player);
 	    			grid22 = true;
 	    			player = false;
 	    		}
@@ -119,68 +131,76 @@ public class MainController
 	    		if (row == 0 && col == 0 && !grid00)
 	    		{
 	    			imgGrid00.setImage(imgX);	
+	    			board.updateBoard(row, col, player);
 	    			grid00 = true;
 	    			player = true;	
 	    		}
 	    		else if (row == 0 && col == 1 && !grid01)
 	    		{
 	    			imgGrid01.setImage(imgX);
+	    			board.updateBoard(row, col, player);
 	    			grid01 = true;
 	    			player = true;	
 	    		}
 	    		else if (row == 0 && col == 2 && !grid02)
 	    		{
 	    			imgGrid02.setImage(imgX);
+	    			board.updateBoard(row, col, player);
 	    			grid02 = true;
 	    			player = true;	
 	    		}
 	    		else if (row == 1 && col == 0 && !grid10)
 	    		{
 	    			imgGrid10.setImage(imgX);
+	    			board.updateBoard(row, col, player);
 	    			grid10 = true;
 	    			player = true;	
 	    		}
 	    		else if (row == 1 && col == 1 && !grid11)
 	    		{
 	    			imgGrid11.setImage(imgX);
+	    			board.updateBoard(row, col, player);
 	    			grid11 = true;
 	    			player = true;	
 	    		}
 	    		else if (row == 1 && col == 2 && !grid12)
 	    		{
 	    			imgGrid12.setImage(imgX);
+	    			board.updateBoard(row, col, player);
 	    			grid12 = true;
 	    			player = true;	
 	    		}
 	    		else if (row == 2 && col == 0 && !grid20)
 	    		{
 	    			imgGrid20.setImage(imgX);
+	    			board.updateBoard(row, col, player);
 	    			grid20 = true;
 	    			player = true;	
 	    		}
 	    		else if (row == 2 && col == 1 && !grid21)
 	    		{
 	    			imgGrid21.setImage(imgX);
+	    			board.updateBoard(row, col, player);
 	    			grid21 = true;
-	    			player = true;	
+	    			player = true;
 	    		}
 	    		else if (row == 2 && col == 2 && !grid22)
 	    		{
 	    			imgGrid22.setImage(imgX);
+	    			board.updateBoard(row, col, player);
 	    			grid22 = true;
 	    			player = true;	
 	    		}   
 	    		lblMessage.setText("Player 1");
     		}
     	}
-    	gameOver();
-    }
-    
-    void gameOver()
-    {
-    	if (grid00 && grid01 && grid02 && grid10 && grid11 && grid12 && grid20 && grid21 && grid22)
+    	if (board.checkWin() != null)
     	{
-    		lblMessage.setText("Game Over!");
+    		System.out.println("The Winner is " + board.checkWin());
+    	}
+    	if (board.isTie())
+    	{	
+    		System.out.println("Tie!");
     	}
     }
 }
