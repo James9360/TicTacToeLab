@@ -21,6 +21,7 @@ public class TicTacToeApplication extends Application
 		
 		arg0.setScene(scene);		
 		arg0.setTitle("TicTacToe");
+		arg0.setResizable(false);
 		arg0.show();
 	}
 }

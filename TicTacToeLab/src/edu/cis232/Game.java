@@ -2,17 +2,27 @@ package edu.cis232;
 
 public class Game 
 {
-	private Board board;
-	private String currentPlayer;
+	private Board board = new Board();;
+	private String currentPlayer = "Player1";
 	
-	public MoveResult makeMove(int row, int col)
+	public void makeMove(int row, int col)
 	{
-		return null;
+		System.out.println(currentPlayer);
+		//board.updateBoard(row, col, currentPlayer);
+		switchPlayer();
 	}
 	
 	public void switchPlayer()
 	{
-		currentPlayer = "Player1";
+		if (currentPlayer.equals("Player1"))
+		{
+			currentPlayer = "Player2";
+		}
+		
+		else if (currentPlayer.equals("Player2"))
+		{
+			currentPlayer = "Player1";
+		}
 	}
 	
 	public String getCurrentPlayer()

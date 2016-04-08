@@ -1,9 +1,6 @@
 package edu.cis232;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
-
-public class Board extends Application
+public class Board
 {
 	private String[][] board = new String[3][3];
 	/**
@@ -16,6 +13,12 @@ public class Board extends Application
 		return Board.checkWin(board);
 	}
 	
+	/**
+	 * Updates the game board.
+	 * @param row int-Holds the row number
+	 * @param col int-Holds the column number.
+	 * @param player Holds a boolean that flips between player 1 and player 2.
+	 */
 	public void updateBoard(int row, int col, boolean player)
 	{
 		for (int i=0; i<=row; i++)
@@ -36,6 +39,7 @@ public class Board extends Application
 				}
 			}
 		}
+		//This is just to check if the board is formatted correctly in the array.
 		System.out.println();
 		for (int i=0; i<board.length; i++)
 		{
@@ -48,6 +52,18 @@ public class Board extends Application
 		}
 	}
 	
+	/**
+	 * Deletes the board for a new game.
+	 */
+	public void deleteBoard()
+	{
+		board = null;
+	}
+	
+	/**
+	 * Returns the board.
+	 * @return String[][]
+	 */
 	public String[][] getBoard()
 	{
 		return board;
@@ -198,11 +214,5 @@ public class Board extends Application
 		}
 
 		return null;
-	}
-
-	@Override
-	public void start(Stage arg0) throws Exception {
-		// TODO Auto-generated method stub
-		
 	}
 }
