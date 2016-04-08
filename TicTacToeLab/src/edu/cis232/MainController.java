@@ -1,12 +1,8 @@
 package edu.cis232;
 
-import java.util.ArrayList;
-
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.*;
+import javafx.scene.image.*;
 import javafx.scene.input.MouseEvent;
 
 public class MainController 
@@ -16,6 +12,7 @@ public class MainController
 	int tieCount = 0;
 	Board board = new Board();
 	Game game = new Game();
+	
     @FXML
     private ImageView imgGrid01;
 
@@ -298,7 +295,6 @@ public class MainController
     @FXML
     void newClicked()
     {
-    	ArrayList<String> a = new ArrayList<String>();
     	grid00 = false; 
     	grid01 = false;
 		grid02 = false;
@@ -332,5 +328,3 @@ public class MainController
     	System.exit(0);
     }
 }
-
-
